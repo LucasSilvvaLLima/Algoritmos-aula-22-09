@@ -9,14 +9,14 @@
 </head>
 
 <body>
-    <select name="" id="sel_proteina" onchange="vou_comprar()">
+    Qual a Proteina: <select name="" id="sel_proteina" onchange="vou_comprar()">
         <option value="">Selecione</option>
         <option value="1">Ovo</option>
         <option value="2">Soja</option>
         <option value="3">Carne</option>
     </select>
-
-    <select name="" id="sel_sobremesa" onchange="vou_comprar()">
+    <br><br>
+    Qual a sobremesa: <select name="" id="sel_sobremesa" onchange="vou_comprar()">
         <option value="">Selecione</option>
         <option value="1">Pudim</option>
         <option value="2">Petit Gateau</option>
@@ -34,7 +34,7 @@
         if (proteina == 2 && sobremesa == 3) {
             alert("Você poderia ser Vegano")
         } else {
-            alert("Você não pode ser Vegano")
+            alert("Você NÃO pode ser Vegano")
         }
     }
 </script>

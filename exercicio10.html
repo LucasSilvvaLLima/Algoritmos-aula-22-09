@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+<body>
+<!-- 
+10. Crie um programa o qual:
+
+a) Pergunte o intervalo da altura desejada para os próximos pilotos (altura inicial e altura final de seleção) A altura inicial tem que ser maior que 1 e a altura final tem que ser maior que a altura inicial, caso contrário emitir mensagem de alerta E NÃO SEGUIR EM FRENTE.
+
+b) Pergunte o nome e a atura do candidato a piloto.
+
+c) Emitir uma das duas mensagens abaixo sem apagar as mensagens anteriores:
+
+   c.1) “O candidato XXXXX com altura de 9,99 participará do processo de seleção de piloto”, caso a altura do candidato esteja no intervalo informado.
+
+   c.2) “Infelizmente o candidato XXXXX com altura de 9,99 não atende os requisitos”, caso a altura do candidato NÃO esteja no intervalo informado.
+-->
+
+<p>Qual a altura Inicial Desejada: <input type="text" id="in_alturaI"></p>
+<p>Qual a altura Final Desejada: <input type="text" id="in_alturaF"></p>
+<p>Qual o seu nome: <input type="text" id="in_nome"></p>
+<p>Qual a sua Altura: <input type="text" id="in_altura"></p>
+<button onclick="validar()">Validar</button>
+<div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function validar(){
+        var alturaI = Number(in_alturaI.value)
+        var alturaF = Number(in_alturaF.value)
+        var nome = in_nome.value
+        var altura = Number(in_altura.value)
+
+        if (alturaI >  1 && alturaF > alturaI) {
+            if (altura >= alturaI && altura <= alturaF) {
+                div_mensagem.innerHTML += `O candidato ${nome} com altura de ${altura} participará do processo de seleção de piloto <br>`
+            } else {
+                div_mensagem.innerHTML += `Infelizmente o candidato ${nome} com altura de ${altura} não atende os requisitos <br>`
+            }
+        } else {
+            div_mensagem.innerHTML += "A altura Inicial tem que ser maior que 1 e a altura final tem que ser maior que a inicial <br>"
+        }
+    }
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+<body>
+    <!-- 1. Crie um programa o qual:
+a) Pergunte a temperatura atual
+b) Ao clicar em "Ver situação"...
+c) Caso a temperatura seja entre 21 e 24, exibir um alert com a frase "Temperatura confortável sorriso"
+d) Caso a temperatura não estiver no intervalo definido em c), exibir um alert com a frase "Temperatura DESCONFORTÁVEL triste" -->
+
+<p>Qual a temperatura atual: <input type="text" id="in_temperatura"></p>
+<button onclick="ver_situacao()">Ver situação</button>
+</body>
+</html>
+
+<script>
+    function ver_situacao(){
+        var temperatura = Number(in_temperatura.value)
+        if (temperatura >= 21 && temperatura <= 24) {
+            alert("Temperatura confortável 😁")
+        } else {
+            alert("Temperatura DESCONFORTÁVEL 😢")
+        }
+    }
+</script>
