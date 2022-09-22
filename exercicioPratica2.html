@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="" id="sel_proteina" onchange="vou_comprar()">
+        <option value="">Selecione</option>
+        <option value="1">Ovo</option>
+        <option value="2">Soja</option>
+        <option value="3">Carne</option>
+    </select>
+
+    <select name="" id="sel_sobremesa" onchange="vou_comprar()">
+        <option value="">Selecione</option>
+        <option value="1">Pudim</option>
+        <option value="2">Petit Gateau</option>
+        <option value="3">Brigadeiro de Soja</option>
+    </select>
+
+</body>
+
+</html>
+<script>
+    function vou_comprar() {
+        proteina = Number(sel_proteina.value)
+        sobremesa = Number(sel_sobremesa.value)
+
+        if (proteina == 2 && sobremesa == 3) {
+            alert("Você poderia ser Vegano")
+        } else {
+            alert("Você não pode ser Vegano")
+        }
+    }
+</script>
