@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+<body>
+<p>Qual a altura Inicial Desejada de um piloto: <input type="text" id="in_altura_inicial_piloto"></p>
+<p>Qual a altura Final Desejada de um piloto: <input type="text" id="in_altura_final_piloto"></p>
+
+<p>Qual a altura Inicial Desejada de um jogador: <input type="text" id="in_altura_inicial_jogador"></p>
+<p>Qual a altura Final Desejada de um jogador: <input type="text" id="in_altura_final_jogador"></p>
+<button onclick="selecionar">Selecionar</button>
+<div id="div_menssagem">
+    <h1>Processo de Seleção de novos atletas</h1>
+    <h2>Critério de Seleção de piloto – altura entre ${inicial1} até ${final1}</h2>
+    <h2>Critério de Seleção de jogador de basquete – altura entre ${inicial2} até ${final2}</h2>
+    <p>Qual o sue nome: </p><input type="text" id="in_nome">
+    <p>Qual o sua altura: </p><input type="text" id="in_altura">
+</div>
+
+</body>
+</html>
+<script>
+    function validar(){
+        var inicial1 = Number(in_altura_inicial_piloto.value)
+        var final1 = Number(in_altura_final_piloto.value)
+        
+        var inicial2 = Number(in_altura_final_jogador.value)
+        var final2 = Number(in_altura_final_jogador.value)
+        if (inicial1 < 1 && inicial1 > final1) {
+            alert("A altura inicial tem que ser maior que 1 e a altura final tem que ser maior que a altura inicial")
+        } else {
+           if(inicial2 < 1.5 && inicial2 > final2){
+                alert("A altura inicial tem que ser maior que 1.5 e a altura final tem que ser maior que a altura inicial")
+           }else{
+
+           } 
+        }
+    }
+</script>
