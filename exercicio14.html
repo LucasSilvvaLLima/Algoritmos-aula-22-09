@@ -1,43 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio 14</title>
 </head>
-<body>
-<p>Qual a altura Inicial Desejada de um piloto: <input type="text" id="in_altura_inicial_piloto"></p>
-<p>Qual a altura Final Desejada de um piloto: <input type="text" id="in_altura_final_piloto"></p>
 
-<p>Qual a altura Inicial Desejada de um jogador: <input type="text" id="in_altura_inicial_jogador"></p>
-<p>Qual a altura Final Desejada de um jogador: <input type="text" id="in_altura_final_jogador"></p>
-<button onclick="selecionar">Selecionar</button>
-<div id="div_menssagem">
-    <h1>Processo de Seleção de novos atletas</h1>
-    <h2>Critério de Seleção de piloto – altura entre ${inicial1} até ${final1}</h2>
-    <h2>Critério de Seleção de jogador de basquete – altura entre ${inicial2} até ${final2}</h2>
-    <p>Qual o sue nome: </p><input type="text" id="in_nome">
-    <p>Qual o sua altura: </p><input type="text" id="in_altura">
-</div>
+<body>
+    <div id="div_primeira_menssagem" style="display: flex; flex-direction: column;">
+        <p>Qual a altura Inicial Desejada de um piloto: <input type="text" id="in_altura_inicial_piloto"></p>
+        <p>Qual a altura Final Desejada de um piloto: <input type="text" id="in_altura_final_piloto"></p>
+        <p>Qual a altura Inicial Desejada de um jogador: <input type="text" id="in_altura_inicial_jogador"></p>
+        <p>Qual a altura Final Desejada de um jogador: <input type="text" id="in_altura_final_jogador"></p>
+        <button onclick="selecionar()">Selecionar</button>
+    </div>
+
+    <div id="div_segunda_menssagem"></div>
 
 </body>
+
 </html>
 <script>
-    function validar(){
-        var inicial1 = Number(in_altura_inicial_piloto.value)
-        var final1 = Number(in_altura_final_piloto.value)
-        
-        var inicial2 = Number(in_altura_final_jogador.value)
-        var final2 = Number(in_altura_final_jogador.value)
-        if (inicial1 < 1 && inicial1 > final1) {
-            alert("A altura inicial tem que ser maior que 1 e a altura final tem que ser maior que a altura inicial")
-        } else {
-           if(inicial2 < 1.5 && inicial2 > final2){
-                alert("A altura inicial tem que ser maior que 1.5 e a altura final tem que ser maior que a altura inicial")
-           }else{
+    var inicial1 = 0;
+    var final1 = 0;
 
-           } 
+    var inicial2 = 0;
+    var final2 = 0;
+
+    function selecionar() {
+        inicial1 = Number(in_altura_inicial_piloto.value);
+        final1 = Number(in_altura_final_piloto.value);
+
+        inicial2 = Number(in_altura_inicial_jogador.value);
+        final2 = Number(in_altura_final_jogador.value);
+
+        if (inicial1 > 1 && inicial1 < final1) {
+
+            if (inicial2 > 1.5 && inicial2 < final2) {
+                div_primeira_menssagem.innerHTML = ""
+                div_segunda_menssagem.innerHTML = `
+                    <h1>Processo de Seleção de novos atletas</h1>
+                    <h2>Critério de Seleção de piloto – altura entre ${(inicial1).toFixed(2)} até ${(final1).toFixed(2)}</h2>
+                    <h2>Critério de Seleção de jogador de basquete – altura entre ${(inicial2).toFixed(2)} até ${(final2).toFixed(2)}</h2>
+                    <p>Qual o sue nome: </p><input type="text" id="in_nome">
+                    <p>Qual o sua altura: </p><input type="text" id="in_altura"><br><br>
+                    <select name="" id="sel_modalidade">
+                        <option value="">Escolha uma Modalidade</option>
+                        <option value="0">Piloto</option>
+                        <option value="1">Jogador de Basquete</option>
+                    </select><br><br>
+                    <button onclick="validar()">Cadastrar</button>
+                    `
+            } else {
+                alert("A altura inicial de um jogador de basquete tem que ser maior que 1.5 e a altura final tem que ser maior que a altura inicial")
+            }
+        } else {
+            alert("A altura inicial de um piloto tem que ser maior que 1 e a altura final tem que ser maior que a altura inicial")
+        }
+    }
+
+    function validar() {
+        var modalidade = Number(sel_modalidade.value);
+        var nome = in_nome.value;
+        var altura = Number(in_altura.value);
+
+        if (modalidade == 0) {
+            if (altura >= inicial1 && altura <= final1) {
+                div_segunda_menssagem.innerHTML += `<br> O candidato ${nome} com altura de ${(altura).toFixed(2)}m participará do processo de seleção de piloto`
+            } else {
+                div_segunda_menssagem.innerHTML += `<br> Infelizmente o candidato ${nome} com altura de ${(altura).toFixed(2)}m não atende os requisitos para ser um Piloto`
+            }
+        } else if (modalidade == 1) {
+            if (altura >= inicial2 && altura <= final2) {
+                div_segunda_menssagem.innerHTML += `<br> O candidato ${nome} com altura de ${(altura).toFixed(2)}m participará do processo de seleção de Jogador de Basquete`
+            } else {
+                div_segunda_menssagem.innerHTML += `<br> Infelizmente o candidato ${nome} com altura de ${(altura).toFixed(2)}m não atende os requisitos para ser um Jogador de Basquete`
+            }
         }
     }
 </script>
